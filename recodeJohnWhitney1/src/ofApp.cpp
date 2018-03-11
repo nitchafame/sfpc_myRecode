@@ -30,12 +30,13 @@ void ofApp::draw(){
             
             //float radius = ofMap(sin(time + (i * .2)), -1, 0, 0, 100);
             float radius = ofMap(sin(time + (i + j * offset)), -1, 0, 0, radiusSize);
-        
+            //cout<<"radius: " <<radius<< endl;
+            
             //float angle = ofGetElapsedTimef();
             //float angle = i * (TWO_PI / 100 * 10) * time * 0.01 ;
             float angle = i * (TWO_PI / dotAmount * 12) * time * 0.01 ;
             
-            //cout<<"angle: " <<angle<< endl;
+            cout<<"angle: " <<angle<< endl;
             
             ofPoint pt;
             

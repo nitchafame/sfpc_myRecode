@@ -18,41 +18,34 @@ void ofApp::draw(){
     
     float time = ofGetElapsedTimef();
     //float spinSpeed = mouseX * .001;
-    float offset = ofMap(sin(time), -1, 1, 0, 0.2);
-    
-    float xOrigin = 400.0;
-    float yOrigin = 400.0;
+    float offset = ofMap(sin(time), -1, 1, 0, 0.01);
     
     float dotAmount = 100;
-    float radiusSize = 150;
+    float radiusSize = 60;
     
     for (int i = 0; i < dotAmount; i++){
-        for (int j = 0; j < 10; j++){
+        
+            //float radius = ofMap(sin(time + (i* offset)), -1, 0, 0, radiusSize);
+            float radius = ofMap(sin(time * 0.05 + (i* offset)), -1, 0, 0, radiusSize);
             
-            //float radius = ofMap(sin(time + (i * .2)), -1, 0, 0, 100);
-            float radius = ofMap(sin(time + (i + j * offset)), -1, 0, 0, radiusSize);
-            
-            //float angle = ofGetElapsedTimef();
-            //float angle = i * (TWO_PI / 100 * 10) * time * 0.01 ;
-            float angle = i * (TWO_PI / dotAmount * 12) * time * 0.01 ;
-            
-            //cout<<"angle: " <<angle<< endl;
+            float angle = i * sin(time * 0.1);
+        
             
             ofPoint pt;
             
-            pt.x = xOrigin + radius* cos(angle);
-            pt.y = yOrigin + radius* sin(angle);
+            pt.x = sin(radius) * 400 +400;
+            pt.y = ofGetHeight()/2 + radius* sin(angle);
             
-            ofDrawCircle(pt , 1);
+            ofDrawCircle(pt , 1.5);
             
-            //            line.addVertex(pt);
-            //            if(line.size() > 2){
-            //                line.getVertices().erase(line.getVertices().begin());
-            //                line.draw();
-            //            }
+//                        line.addVertex(pt);
+//                        if(line.size() > 2){
+//                            line.getVertices().erase(line.getVertices().begin());
+//                            line.draw();
+//                        }
         }
     }
-}
+
 
 
 //--------------------------------------------------------------
