@@ -20,29 +20,33 @@ void ofApp::draw(){
     //float spinSpeed = mouseX * .001;
     float offset = ofMap(sin(time), -1, 1, 0, 0.01);
     
-    float dotAmount = 100;
+    float dotAmount = 500;
     float radiusSize = 60;
+    
+    //amplitute, frequency, phease
     
     for (int i = 0; i < dotAmount; i++){
         
             //float radius = ofMap(sin(time + (i* offset)), -1, 0, 0, radiusSize);
-            float radius = ofMap(sin(time * 0.05 + (i* offset)), -1, 0, 0, radiusSize);
+            float radius = ofMap(sin(time * 0.09 + (i* offset)), -1, 0, 0, radiusSize);
             
-            float angle = i * sin(time * 0.1);
-        
-            
+            float angle = i * sin(time * 0.01);
             ofPoint pt;
-            
-            pt.x = sin(radius) * 400 +400;
-            pt.y = ofGetHeight()/2 + radius* sin(angle);
+        
+            // pt.x = cos(radius * PI * 0.33) * TWO_PI * 60 + 400;
+            //pt.x = sin(radius * PI * 0.05) * TWO_PI * 30 + 400;
+            //pt.x = sin(radius) * 400+400;
+        
+            pt.x = cos(radius * PI * 0.33) * TWO_PI * 60 + 400;
+            pt.y = ofGetHeight()/2 + radius * sin(angle);
             
             ofDrawCircle(pt , 1.5);
             
-//                        line.addVertex(pt);
-//                        if(line.size() > 2){
-//                            line.getVertices().erase(line.getVertices().begin());
-//                            line.draw();
-//                        }
+//          line.addVertex(pt);
+//             if(line.size() > 2){
+//               line.getVertices().erase(line.getVertices().begin());
+//               line.draw();
+//             }
         }
     }
 
