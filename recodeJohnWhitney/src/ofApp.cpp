@@ -21,10 +21,10 @@ void ofApp::draw(){
     float w = ofGetWidth();
     
     for (int i = 0; i < 1000; i++) {
-        for (int j = 0; j < 20; j++) {
+        //for (int j = 0; j < 20; j++) {
             
         float size = ofMap(sin(time * 0.8), 0, 1, 1500, w * 3);
-        float radius = ofMap(sin(i+j * time * .01), 0, 10, 0, size);
+        float radius = ofMap(sin(i * time * .001), 0, 10, 0, size);
         //float radius = ofMap(sin(i+j * time * .01), 0, 10, 0, size);
 
         float angle = sin(time * 0.05 + i)* TWO_PI;
@@ -36,7 +36,7 @@ void ofApp::draw(){
         
         ofDrawCircle(pt, 1);
         //ofDrawCircle(pt, 2);
-        }
+        //}
     }
 }
 
